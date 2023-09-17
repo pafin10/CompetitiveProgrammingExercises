@@ -1,3 +1,5 @@
+package _900;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -47,7 +49,6 @@ public class MisloveHasLostAnArray {
                 maxList.add((int) Math.pow(2, i));
             }
         }
-
 
         System.out.println(minSum + " " + maxSum);
 

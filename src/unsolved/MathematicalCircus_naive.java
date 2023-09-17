@@ -1,4 +1,4 @@
-package _900;
+package unsolved;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class MathematicalCircus_naive {
 
-    // TO BE CONTINUED; EFFICIENCY
+    // TO BE CONTINUED; HOW TO OPTIMIZE FURTHER??
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int testcases = Integer.parseInt(bufferedReader.readLine());

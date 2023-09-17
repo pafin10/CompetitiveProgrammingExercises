@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class NumberOfApartments_naive {
+public class NumberOfApartments {
 
     // THINK ABOUT IT
     public static void main(String[] args) throws IOException {
@@ -29,6 +29,7 @@ public class NumberOfApartments_naive {
         for (int i = 1; i < 1001 / 3; i++) {
             for (int j = 1; j < 1001 / 5; j++) {
                 for (int k = 1; k < 1001 / 7; k++) {
+
                     if (numWindows % 7 == 0 || numWindows % 7 == 3 * i || numWindows % 7 == 5 * i) {
                         sevenRooms = numWindows / 7;
                         numWindows -= sevenRooms * 7;
