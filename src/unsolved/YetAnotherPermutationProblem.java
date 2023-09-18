@@ -20,6 +20,7 @@ public class YetAnotherPermutationProblem {
     }
 
     public static void solve(int n) {
+
         List<Integer> arrList = new ArrayList<>();
         int start;
         HashSet<Integer> notUsed = new HashSet<>(n);
