@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fcc4050-77ea-471c-8b95-2eed32b61155" name="Changes" comment="&quot;new exercises, struggling with further optimization of permut probl&quot;">
-      <change afterPath="$PROJECT_DIR$/src/A_characteristic.java" afterDir="false" />
+    <list default="true" id="9fcc4050-77ea-471c-8b95-2eed32b61155" name="Changes" comment="updates">
+      <change afterPath="$PROJECT_DIR$/src/Codechef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TenzingAndTsondu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_800/BlackboardList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_800/MrPerfectlyFine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_800/ParitySort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/contestsCodeChef/contest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unsolved/YetAnotherPermutationProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unsolved/YetAnotherPermutationProblem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +79,11 @@
       <workItem from="1695028173213" duration="53000" />
       <workItem from="1695028236524" duration="173000" />
       <workItem from="1695039449305" duration="425000" />
-      <workItem from="1695062270440" duration="3723000" />
+      <workItem from="1695062270440" duration="3977000" />
+      <workItem from="1695150893084" duration="4506000" />
+      <workItem from="1695220013059" duration="8622000" />
+      <workItem from="1695235365385" duration="3694000" />
+      <workItem from="1695402163427" duration="4549000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;new exercises, struggling with further optimization of permut probl&quot;">
       <created>1694950419663</created>
@@ -84,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694950419663</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updates">
+      <created>1695067650610</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695067650610</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,7 +118,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;new exercises, struggling with further optimization of permut probl&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;new exercises, struggling with further optimization of permut probl&quot;" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
