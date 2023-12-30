@@ -25,7 +25,6 @@ bin/
 
 ### VS Code ###
 .vscode/
-*.DSYM
-
+*.dSYM/
 ### Mac OS ###
 .DS_Store
