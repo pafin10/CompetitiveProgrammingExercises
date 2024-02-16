@@ -17,7 +17,7 @@ int main() {
         for (int i = 0; i < n; i++) {
             cin>>a[i];
         }
-        sort(a.begin(), a.end());
+        sort(a.begin(), a.end()); 
         long long sm = 0;
         int cursed = 0; 
         vector<int> cursedElements;
