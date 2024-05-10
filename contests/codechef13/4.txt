@@ -1,0 +1,7 @@
+3
+4
+abcc
+7
+acaacbc
+7
+aabacbc

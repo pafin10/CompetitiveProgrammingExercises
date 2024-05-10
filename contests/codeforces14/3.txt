@@ -1,0 +1,19 @@
+4
+3 1
+3 1 2
+1 3
+5
+4 2
+2 2 1 3
+6 3
+4 1 2 2 4 3
+
+1969C - Minimizing the Sum
+The small values of 𝑘 leads to the idea that expected solution is dynamic programming. 
+In fact, we can actually design a dynamic programming solution.
+
+Let 𝑑𝑝𝑖,𝑗 be the minimum sum, if we considered the first 𝑖 elements and already done 𝑗 operations. 
+Note that, we can turn a segment of length 𝑑+1 into a minimum on it using 𝑑 operations. So the transitions can be done by iterating over the length of the next segment (denote it as 𝑑) and we can update 𝑑𝑝𝑖+𝑑+1,𝑗+𝑑 with 𝑑𝑝𝑖,𝑗+(𝑑+1)⋅𝑥, where 𝑥 is the minimum among 𝑎𝑖,𝑎𝑖+1,…,𝑎𝑖+𝑑−1 (that can be maintained in a single variable during iteration over 𝑑).
+
+There are 𝑂(𝑛𝑘) states in the dynamic programming and 𝑂(𝑘) transitions from each of them, 
+so the solution works in 𝑂(𝑛𝑘2).

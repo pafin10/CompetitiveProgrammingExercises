@@ -12,28 +12,29 @@ using namespace std;
 #define ll long long
 #define endl "\n"
 #define it(i, n) for (int i = 0; i < n; ++i)
+#define pb push_back
 
 bool isBinaryDec(ll num) {
-    string str = to_string(num);
-    for (char digit : str) {
-        if (digit != '0' && digit != '1') {
-            return false;
+    bool binary = true; 
+    if (num == 0) return false;
+    while(num >= 1) {
+        if ((num % 10) != 0 && (num % 10) != 1) {
+            binary = false;
+            break;
         }
+        num /= 10;
     }
-    return true;
+    return binary; 
 }
 
 set<ll> findFactors(ll n) {
     set<ll> factors;
     for (ll i = 2; i * i <= n; ++i) {
         if (n % i == 0) {
-            while (n % i == 0) {
-                factors.insert(i);
-                n /= i;
-            }
+            factors.insert(i);
+            factors.insert(n/i);
         }
     }
-    if (n > 1) factors.insert(n); 
     return factors;
 }
 
@@ -43,26 +44,31 @@ bool canBeFullyBinaryDecomposed(ll num) {
     set<ll> factors = findFactors(num);
 
     for (ll factor : factors) {
-        if (isBinaryDec(factor) && isBinaryDec(num / factor)) {
-            return true; 
-        }
+        return (canBeFullyBinaryDecomposed(factor));
     }
     return false; 
 }
 
 int main() {
-    //ifstream cin("4.txt");
+    // ifstream cin("4.txt");
     int t;
     cin >> t;
+    const int a = 10001;
+    vector<int> binaryDec;
+    it (i, a) {
+        if (isBinaryDec(i)) binaryDec.pb(i);
+    }
     while (t--) {
         ll n;
         cin >> n;
-        if (n==1) {cout<<"YES"<<endl; continue;}
-        if (canBeFullyBinaryDecomposed(n)) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
+        bool ans = 0;
+        int sz = binaryDec.size();
+        it (i, sz) {
+            if (n % (binaryDec[i]) == 0) {
+                ans |= canBeFullyBinaryDecomposed(n/binaryDec[i]);
+            }
         }
+        ans ? cout<< "YES"<<endl : cout << "NO" <<endl; 
     }
     return 0;
 }

@@ -9,63 +9,61 @@
 #include <utility>
 
 using namespace std;
-#define ll long long
-#define endl "\n"
-#define it(i, n) for (int i = 0; i < n; ++i)
-#define pb push_back
 
-bool comparePositionsInA(const vector<pair<ll, ll>>& a, ll i, ll j) {
-    return a[i].second < a[j].second;
+#define pb push_back
+#define ff first
+#define ss second
+
+typedef long long ll;
+typedef long double ld;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef pair<ld, ld> pld;
+
+const int INF = 1e9;
+const ll LLINF = 1e18;
+const int MOD = 1e9 + 7;
+
+template<class K> using sset =  tree<K, null_type, less<K>, rb_tree_tag, tree_order_statistics_node_update>;
+
+inline ll ceil0(ll a, ll b) {
+    return a / b + ((a ^ b) > 0 && a % b);
 }
 
-int main(int argc, char const *argv[]) {
+void setIO() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+}
 
-    // ifstream cin("collectingGame.txt");
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-   
-
-    int t; cin>>t; 
-    while(t--) {
-        ll n; cin>>n;
-        vector<pair<ll, ll>> a(n);
-        // second entry is the original position
-        it(i, n) {
-            cin>>a[i].first;
-            a[i].second = i; 
-        }
-
-        sort(a.begin(), a.end());
-        vector<ll> cumulVec(n);
-        vector<ll> out(n);
-        cumulVec[0] = a[0].first;
-        ll k = 1; 
-        while(k < n && a[k].first <= cumulVec[0]) {
-            cumulVec[0] += a[k].first;
-            k++;
-        }
-        for (int i = 1; i < n; i++) {
-            cumulVec[i] = cumulVec[i-1] + a[i].first;
-        }
-        
-        it(i, n) {
-            out[i] = i;
-            ll j = i+1; 
-            // probably here binary search, for now naive
-            while(j < n && cumulVec[i] >= a[j].first) {
-                out[i]++;
-                j++;
+// Walk through again and reconstruct
+int main(){
+    setIO();
+    int T;
+    cin >> T;
+    for(int tt = 1; tt <= T; tt++){
+        int n;
+        cin >> n;
+        pii arr[n + 1];
+        for(int i = 1; i <= n; i++) cin >> arr[i].ff, arr[i].ss = i;
+        sort(arr + 1, arr + n + 1);
+        int nxt[n + 1];
+        ll sum[n + 1];
+        int ans[n + 1];
+        nxt[0] = sum[0] = 0;
+        for(int i = 1; i <= n; i++){
+            if(nxt[i - 1] >= i){
+                nxt[i] = nxt[i - 1];
+                sum[i] = sum[i - 1];
+            } else {
+                sum[i] = sum[i - 1] + arr[i].ff;
+                nxt[i] = i;
+                while(nxt[i] + 1 <= n && sum[i] >= arr[nxt[i] + 1].ff){
+                    nxt[i]++;
+                    sum[i] += arr[nxt[i]].ff;
+                }
             }
+            ans[arr[i].ss] = nxt[i];
         }
-        vector<ll> ans(n);
-        it (i, n) {
-            ans[a[i].second] = out[i];
-        }
-
-        it (i, n) cout<<ans[i]<<" ";
-        cout<<endl;        
-    
+        for(int i = 1; i <= n; i++) cout << ans[i] - 1 << " ";
+        cout << endl;
     }
-
-    return 0;
 }
