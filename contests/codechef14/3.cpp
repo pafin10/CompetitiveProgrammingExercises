@@ -32,11 +32,28 @@ using namespace std;
 const int MAX_N = 100'005;
 
 int32_t main() {
+    ifstream cin("3.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        ll a,b,k; cin>>a>>b>>k;
+        ll ops = 0;
+        while (true) {
+            if (b%k==0 && b/k >= a) {
+                b /= k; 
+                ops++;
+            }
+            else if (b%k==0) {
+                ops += (b-a);
+                break;
+            }
+            else {
+                ops += (b%k);
+                b -= (b%k);
+            }
+        }
+        cout<<ops<<endl; 
     }
 }

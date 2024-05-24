@@ -32,11 +32,28 @@ using namespace std;
 const int MAX_N = 100'005;
 
 int32_t main() {
+    //ifstream cin("4.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        ll n,k,b,s; cin>>n>>k>>b>>s; 
+        vll a(n+1), p(n+1);
+        it(i,1,n+1) cin>>p[i];
+        it(i,1,n+1) cin>>a[i];
+
+        auto f = [&](ll i) {
+            ll score = 0, runScore = 0;
+            for (ll j = 0; j < k && j < n; i = p[i], j++) {
+                score = max(runScore + a[i] * (k-j), score);
+                runScore += a[i];
+            }
+            return score; 
+        };
+        ll bod = f(b), sash = f(s);
+        if (bod > sash) cout<<"Bodya"<<endl; 
+        else if (bod < sash) cout<<"Sasha"<<endl; 
+        else cout<<"Draw"<<endl;
     }
 }

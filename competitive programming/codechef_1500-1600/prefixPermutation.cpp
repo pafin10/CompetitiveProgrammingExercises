@@ -7,11 +7,8 @@
 #include <algorithm>
 #include <cmath>
 #include <map>
-#include <bitset>
-#include <numeric>
 #include <set>
 #include <queue>
-#include <unordered_map>
 
 
 using namespace std;
@@ -24,19 +21,33 @@ using namespace std;
 #define ss second
 #define vi vector<int>
 #define vll vector<ll>
-#define pii pair<int, int>
 #define all(x) x.begin(), x.end()
 #define sz(x) (int)x.size()
 #define vout(v) it(i,0,sz(v)) cout<<v[i]<<" "
-//#define int long long
 const int MAX_N = 100'005;
 
-int32_t main() {
+int main(int argc, char const *argv[]) {
+    //ifstream cin("prefixPermutation.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
-
     while(t--) {
-        
+        int n, k; cin>>n>>k; 
+        vi a(k);
+        it(i,0,k) cin>>a[i];
+
+        sort(all(a));
+        vi perm(n);
+        int j = 0;
+        for (j = 0; j < k; j++) {
+            int cnt = 0;
+            for (int i = a[j]; (j==0 ? i >= 1 : i > a[j-1]); i--) {
+                if (j) perm[a[j]+a[j-1]-i] = i;  
+                else perm[a[j]-i] = i;  
+                cnt++;
+            }
+        }
+        vout(perm);
+        cout<<endl; 
     }
 }

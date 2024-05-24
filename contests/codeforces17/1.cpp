@@ -7,11 +7,8 @@
 #include <algorithm>
 #include <cmath>
 #include <map>
-#include <bitset>
-#include <numeric>
 #include <set>
 #include <queue>
-#include <unordered_map>
 
 
 using namespace std;
@@ -24,19 +21,23 @@ using namespace std;
 #define ss second
 #define vi vector<int>
 #define vll vector<ll>
-#define pii pair<int, int>
 #define all(x) x.begin(), x.end()
 #define sz(x) (int)x.size()
 #define vout(v) it(i,0,sz(v)) cout<<v[i]<<" "
 //#define int long long
 const int MAX_N = 100'005;
 
-int32_t main() {
+int main(int argc, char const *argv[]) {
+    //ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
-
     while(t--) {
-        
+        int x, y; cin>>x>>y; 
+        int ans = y/2 + y%2;
+        if (y & 1) x -= (7*(ans-1)+11);
+        else x -= 7*ans;
+        if (x > 0) ans = (int)(ans+ceil((double)x/15)); 
+        cout<<ans<<endl; 
     }
 }

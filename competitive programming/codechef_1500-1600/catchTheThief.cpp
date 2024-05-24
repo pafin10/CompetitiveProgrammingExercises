@@ -7,11 +7,8 @@
 #include <algorithm>
 #include <cmath>
 #include <map>
-#include <bitset>
-#include <numeric>
 #include <set>
 #include <queue>
-#include <unordered_map>
 
 
 using namespace std;
@@ -24,19 +21,27 @@ using namespace std;
 #define ss second
 #define vi vector<int>
 #define vll vector<ll>
-#define pii pair<int, int>
 #define all(x) x.begin(), x.end()
 #define sz(x) (int)x.size()
-#define vout(v) it(i,0,sz(v)) cout<<v[i]<<" "
 //#define int long long
 const int MAX_N = 100'005;
 
-int32_t main() {
+int main(int argc, char const *argv[]) {
+    //ifstream cin("catchTheThief.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
-
     while(t--) {
-        
+        int n,k,x,y;
+        cin>>x>>y>>k>>n;
+        vi reachableThief, reachablePolice;
+        int initDist = abs(x-y);
+
+        string ans = "Yes";
+        if (initDist%k==0 && (initDist/k)%2==1) ans = "No";
+        int xStart = x%k == 0 ? k : x%k;
+        int yStart = y%k == 0 ? k : y%k;
+        if (xStart != yStart) ans = "No";
+        cout<<ans<<endl; 
     }
 }

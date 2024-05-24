@@ -7,36 +7,36 @@
 #include <algorithm>
 #include <cmath>
 #include <map>
+#include <set>
 #include <bitset>
 #include <numeric>
-#include <set>
-#include <queue>
-#include <unordered_map>
-
 
 using namespace std;
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
-#define itb(i, start, n) for (int i = start; i >= n; --i)
 #define pb push_back
-#define ff first
-#define ss second
 #define vi vector<int>
 #define vll vector<ll>
-#define pii pair<int, int>
 #define all(x) x.begin(), x.end()
+#define rev(x) x.rbegin(), x.rend()
 #define sz(x) (int)x.size()
-#define vout(v) it(i,0,sz(v)) cout<<v[i]<<" "
-//#define int long long
-const int MAX_N = 100'005;
+#define INF (ll)1e18
 
-int32_t main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t; cin>>t; 
-
+int main(int argc, char const *argv[]) {
+    //ifstream cin("2.txt");
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t; t=1;//cin>>t; 
     while(t--) {
-        
+        int n, k; cin>>n>>k;
+        int origK = k, ans=0;
+        it(i,0,n) {
+            int j; cin>>j; 
+            if (j<=k) k-=j;
+            else {k=origK-j; ans++;}
+        }
+        ans++;
+        cout<<ans<<endl;
     }
 }

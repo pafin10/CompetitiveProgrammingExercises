@@ -31,12 +31,21 @@ using namespace std;
 //#define int long long
 const int MAX_N = 100'005;
 
+int countRectangles(int n, int m) {
+    if (n < 2 || m < 2) return 0; 
+    int horizontal_choices = n * (n - 1) / 2;
+    int vertical_choices = m * (m - 1) / 2;
+    return horizontal_choices * vertical_choices;
+}
+
 int32_t main() {
+    //ifstream cin("countingRectangles.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    int t; t=1;//cin>>t; 
 
     while(t--) {
-        
+        int n, m; cin>>n>>m; 
+        cout<<countRectangles(n,m)<<endl; 
     }
 }
