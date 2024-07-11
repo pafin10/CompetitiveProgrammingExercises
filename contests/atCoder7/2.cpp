@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -34,12 +32,28 @@ using namespace std;
 const int MAX_N = 100'005;
 
 int32_t main() {
-    //ifstream cin("1.txt");
+    //ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    int t; t=1;//cin>>t; 
 
     while(t--) {
-        
+        int n,m; cin>>n>>m; 
+        vi a(n), b(m);
+        it(i,0,n) cin>>a[i];
+        it(i,0,m) cin>>b[i];
+
+        sort(all(a)); 
+        sort(all(b));
+        int j = 0;
+        int cnt = 0, i = 0; string ans = "No";
+        while (i < n && j < m) { 
+            while (i < n && a[i] < b[j] && cnt < 3) {cnt++; i++;}
+            if (cnt >= 2) {ans = "Yes"; break;}
+            cnt = 0;
+            j++;
+        }
+        if (n > 1 && a[n-2] > b[m-1]) ans = "Yes";
+        cout<<ans<<endl; 
     }
 }

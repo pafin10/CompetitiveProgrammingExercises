@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -40,6 +38,34 @@ int32_t main() {
     int t; cin>>t; 
 
     while(t--) {
+        int n; cin>>n; 
+        vi a(n); 
+        bool same = true;
+        int chInd = 0;
+        set<int> s; 
+        it(i,0,n) {
+            cin>>a[i];
+            s.insert(a[i]);
+            if (i && a[i] != a[i-1]) same = false; 
+            else if (i && a[i] == a[i-1]) chInd = i; 
+        }
+        if (same) {cout<<"NO"<<endl; continue;}
+        bool ch = false; 
+        cout<<"YES"<<endl; 
+        if (sz(s) == 2) {
+            it(i,0,n) {
+                if (i < chInd) cout<<"B";
+                else cout<<"R";
+            }
+        }
+        else {
+            it(i,0,n) {
+                if (i) cout<<"B";
+                else cout<<"R";
+            }
+        }
         
+        cout<<endl; 
+
     }
 }

@@ -34,12 +34,23 @@ using namespace std;
 const int MAX_N = 100'005;
 
 int32_t main() {
-    //ifstream cin("1.txt");
+    //ifstream cin("3.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    int n; cin>>n; 
+    vi a(n), w(n);
+    map<int, vi> boxes;
+    it(i,0,n) cin>>a[i];
+    it(i,0,n) cin>>w[i];
 
-    while(t--) {
-        
+    int ans = 0;
+    it(i,0,n) boxes[a[i]].pb(w[i]);
+    for (auto& p : boxes) {
+        sort(all(p.ss));
+        it(j,0,sz(p.ss)-1) {
+            ans += p.ss[j];
+        }
     }
+    cout<<ans<<endl; 
+    
 }

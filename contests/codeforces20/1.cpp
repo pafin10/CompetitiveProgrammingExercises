@@ -12,11 +12,10 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
+#include <cctype>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -40,6 +39,24 @@ int32_t main() {
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        string s; cin>>s; 
+        bool letter = false; 
+        int lastNum = 0;
+        char lastChar = 'a';
+        string ans = "YES";
+        it(i,0,n) {
+            if (isalpha(s[i])) letter = true; 
+            if (letter && isdigit(s[i])) {ans = "NO"; break;}
+            if (isdigit(s[i])) {
+                if (s[i] - '0' < lastNum) {ans = "NO"; break;}
+                if (s[i] - '0' > lastNum) lastNum = s[i] - '0';
+            }
+            else if (isalpha(s[i])) {
+                if (s[i] < lastChar) {ans = "NO"; break;}
+                if (s[i] > lastChar) lastChar = s[i];
+            }
+        }
+        cout<<ans<<endl; 
     }
 }

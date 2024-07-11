@@ -64,7 +64,7 @@ static map<char, vi> findBoringSubstrings(string s) {
 
 
 int32_t main() {
-    ifstream cin("boringString.txt");
+    //ifstream cin("boringString.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 

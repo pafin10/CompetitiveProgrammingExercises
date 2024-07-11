@@ -33,13 +33,16 @@ using namespace std;
 //#define int long long
 const int MAX_N = 100'005;
 
+
 int32_t main() {
     //ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
-
-    while(t--) {
-        
+    int n; cin>>n; 
+    int cnt = 0;
+    it(i,0,n) {
+        string s; cin>>s; 
+        if (s == "Takahashi") cnt++;
     }
+    cout<<cnt<<endl; 
 }

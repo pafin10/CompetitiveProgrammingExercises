@@ -37,9 +37,13 @@ int32_t main() {
     //ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
-
-    while(t--) {
-        
+    string s; cin>>s; 
+    int r = 0, m = 0;
+    it(i,0,3) {
+        if (s[i] == 'R') r = i; 
+        if (s[i] == 'M') m = i; 
     }
+    if (r < m) cout<<"Yes"<<endl; 
+    else cout<<"No"<<endl; 
+
 }

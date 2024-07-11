@@ -40,6 +40,17 @@ int32_t main() {
     int t; cin>>t; 
 
     while(t--) {
+        int n,m; cin>>n>>m; 
+        string a,b; cin>>a>>b; 
+        int mini = n; 
         
+        it(i,0,n-m+1) {
+            int cnt = 0;
+            it(j,0,m) {
+                if (a[i+j] != b[j]) cnt++;
+            }
+            mini = min(mini, cnt);
+        }
+        cout<<mini<<endl; 
     }
 }

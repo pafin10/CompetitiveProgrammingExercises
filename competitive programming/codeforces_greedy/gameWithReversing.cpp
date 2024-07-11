@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -34,12 +32,29 @@ using namespace std;
 const int MAX_N = 100'005;
 
 int32_t main() {
-    //ifstream cin("1.txt");
+    //ifstream cin("gameWithReversing.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
+        int n; cin>>n;
+        string s, r; cin>>s>>r;
+        if (s == r) {cout<<0<<endl; continue;}
         
+        int ans = 0;
+        int diffCnt = 0, diffCntRev = 0;
+        it(i,0,n) if (s[i] != r[i]) diffCnt++;
+        reverse(all(r));
+        it(i,0,n) if (s[i] != r[i]) diffCntRev++;
+      
+        int ans1 = 2 * diffCnt - diffCnt%2;
+        int ans2 = 2 * diffCntRev;
+        if (diffCntRev > 0 && diffCntRev % 2 == 0) ans2--;
+        if (diffCntRev == 0) ans2 = 2;
+
+        ans = min(ans1, ans2);
+
+        cout<<ans<<endl; 
     }
 }

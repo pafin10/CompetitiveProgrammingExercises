@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -37,9 +35,31 @@ int32_t main() {
     //ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    int t; t=1;//cin>>t; 
 
     while(t--) {
-        
+        int n, k; cin>>n>>k; 
+        vi a(n);
+        ll overallSum = 0;
+        it(i,0,n) {cin>>a[i]; overallSum += a[i];}
+        //vi sums(n+1);
+
+        // case 1: overall sum negative and k negative
+        if (k <= 0) {
+            if (overallSum < k) {cout<<"No"<<endl; continue;}
+            else {
+                sort(a.rbegin(), a.rend());
+                //sums[0] = 0;
+                //it(i,1,n+1) sums[i] = sums[i-1] + a[i-1];
+            }
+        }
+        else {
+            sort(all(a));
+            //sums[0] = 0;
+            //it(i,1,n+1) sums[i] = sums[i-1] + a[i-1];
+        }
+        cout<<"Yes"<<endl; 
+        vout(a);
+        cout<<endl; 
     }
 }

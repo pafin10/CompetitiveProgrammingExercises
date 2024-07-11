@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -40,6 +38,24 @@ int32_t main() {
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        vi a(n);
+        it(i,0,n) cin>>a[i];
+        if (n == 1 && a[0] % 2 == 1) {cout<<0<<endl; continue;}
+        vi dp(n);
+        dp[0] = a[0];
+        it(i,1,n) dp[i] = dp[i-1] + a[i];
+
+        if (dp[n-1] % 2 == 0) cout<<n<<endl;
+        else {
+            bool firstO = true, firstE = true; 
+            int firstOdd = 0, firstEven = 0, lastEven = 0;
+            it(i,0,n) {
+                if (dp[i] % 2 == 1 && firstO) {firstOdd = i; firstO = false; }
+                else if (dp[i] % 2 == 0 && firstE) {firstEven = i; firstE = false; }
+                else if (dp[i] % 2 == 0) lastEven = i; 
+            }
+            cout<<max((n-1) - firstOdd, lastEven - firstEven + 1)<<endl; 
+        }
     }
 }

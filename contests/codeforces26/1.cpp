@@ -40,6 +40,13 @@ int32_t main() {
     int t; cin>>t; 
 
     while(t--) {
-        
+        int a,b,c; cin>>a>>b>>c;
+        int p = 0;
+        int mini = INT32_MAX;
+        it(i,1,11) {
+            int tmp = abs(a - i) + abs(b - i) + abs(c - i);
+            if (tmp < mini) {mini = tmp, p = i;}
+        }
+        cout<<mini<<endl; 
     }
 }

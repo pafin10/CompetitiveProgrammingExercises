@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -40,6 +38,9 @@ int32_t main() {
     int t; cin>>t; 
 
     while(t--) {
-        
+        int l, r; cin>>l>>r; 
+        int maxi = 0;
+        int ans = (int) log2(r);
+        cout<<ans<<endl; 
     }
 }

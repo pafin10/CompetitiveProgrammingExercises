@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -40,6 +38,19 @@ int32_t main() {
     int t; cin>>t; 
 
     while(t--) {
-        
+        string a, b; cin>>a>>b; 
+        vector<char> av(3), bv(3); 
+        it(i,0,3) {
+            if (!i) {
+                av[i] = b[i];
+                bv[i] = a[i];
+            }
+            else {
+                av[i] = a[i];
+                bv[i] = b[i];
+            }
+        }
+        string aout(all(av)), bout(all(bv));
+        cout<<aout<<" "<<bout<<endl; 
     }
 }

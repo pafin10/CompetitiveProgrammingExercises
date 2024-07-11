@@ -34,12 +34,16 @@ using namespace std;
 const int MAX_N = 100'005;
 
 int32_t main() {
-    //ifstream cin("1.txt");
+    //ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    int n; cin>>n; 
+    int cnt = 0;
+    vi a(2*n);
+    it(i,0,2*n) cin>>a[i];
 
-    while(t--) {
-        
+    it(i,0,2*n-2) {
+        if (a[i] == a[i+2]) cnt++;
     }
+    cout<<cnt<<endl; 
 }

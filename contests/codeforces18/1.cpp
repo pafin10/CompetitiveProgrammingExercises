@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -40,6 +38,20 @@ int32_t main() {
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        vi a(n);
+        it(i,0,n) {
+            cin>>a[i];
+        }
+        string ans = "Yes";
+        int sortedUntil = -1;
+        it(i,1,n) {if (a[i] < a[i-1]) {sortedUntil = i; break; }}
+        if (sortedUntil != -1) {
+            it(i,sortedUntil+1, n) {
+                if (a[i] < a[i-1] || a[i-1] > a[0]) {ans = "No"; break;}
+            }
+        }
+        if (sortedUntil != -1 && (a[n-1] > a[0] || a[n-1] < a[n-1])) ans = "No";
+        cout<<ans<<endl; 
     }
 }

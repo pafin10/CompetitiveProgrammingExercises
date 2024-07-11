@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -37,9 +35,13 @@ int32_t main() {
     //ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    int t; t=1;//cin>>t; 
 
     while(t--) {
-        
+        int a,b; cin>>a>>b; 
+        int ans = 0;
+        if (a==b) {cout<<-1<<endl; continue;}
+        else it(i,1,4) if (i != a && i != b) ans = i;
+        cout<<ans<<endl; 
     }
 }

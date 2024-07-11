@@ -12,11 +12,9 @@
 #include <set>
 #include <queue>
 #include <unordered_map>
-#include <cassert>
 
 
 using namespace std;
-#define NDEBUG
 #define ll long long
 #define endl "\n"
 #define it(i, start, n) for (int i = start; i < n; ++i)
@@ -34,12 +32,34 @@ using namespace std;
 const int MAX_N = 100'005;
 
 int32_t main() {
-    //ifstream cin("1.txt");
+    //ifstream cin("3.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    int t; t=1;//cin>>t; 
 
     while(t--) {
-        
+        int n, d; cin>>n>>d; 
+        vi row(n+1, 0), col(n+1, 0);
+        int diagCnt1 = 0, diagCnt2 = 0;
+        int ans = -1;
+        bool found = false; 
+
+        it(i,0,d) {
+            int j; 
+            cin>>j;
+            int currRow = int(ceil((double)j/n));
+            int currCol;
+            if (j%n != 0) currCol = j%n; 
+            else currCol = int(ceil((j-1)%n))+1;
+            row[currRow]++;
+            col[currCol]++;
+            if (currRow == currCol) diagCnt1++;
+            if (currRow+currCol == n+1) diagCnt2++;
+            if (!found && (row[currRow] == n || col[currCol] == n || diagCnt1 == n || diagCnt2 == n)) {
+                ans = i+1;
+                found = true;
+            }
+        }
+        cout<<ans<<endl; 
     }
 }
