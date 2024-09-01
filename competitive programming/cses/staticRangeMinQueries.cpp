@@ -28,7 +28,11 @@ const int MAX_N = 200'005;
 int bin_log[MAX_N];
 int m[MAX_N][17];
 int main(int argc, char const *argv[]) {  
-    //ifstream cin("staticRangeMinQueries.txt");
+    // Given a vector and a number of queries with indices l and r, find the min 
+    // in the range [l,r] for each query ?
+    // yes but watch explanation video again
+    
+    ifstream cin("staticRangeMinQueries.txt");
     int t; //cin>>t; 
     t=1;
     while(t--) {
@@ -39,10 +43,10 @@ int main(int argc, char const *argv[]) {
             m[i][0] = a[i];
         }
         bin_log[1] = 0;
-        it(i,2,n+1) {
+        for (int i = 2; i <= n; i++) {
             bin_log[i] = bin_log[i/2]+1;
         }
-        it(j, 1, 18) {
+        for (int j = 1; j < 18; j++) {
             for (int i = 0; i + (1<<j) -1 < n; i++) {
                 m[i][j] = min(m[i][j-1], m[i+(1<<(j-1))][j-1]);
             }

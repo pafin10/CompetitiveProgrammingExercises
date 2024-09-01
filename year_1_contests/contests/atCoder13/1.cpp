@@ -37,9 +37,9 @@ int32_t main() {
     //ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
-
-    while(t--) {
-        
-    }
+    int r,g,b; cin>>r>>g>>b; 
+    string k; cin>>k;
+    if (k == "Red") cout<<min(g,b)<<endl; 
+    else if (k == "Green") cout<<min(r,b)<<endl; 
+    else cout<<min(r,g)<<endl; 
 }

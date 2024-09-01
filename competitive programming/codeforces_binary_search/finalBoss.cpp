@@ -33,6 +33,7 @@ const int MAX_N = 100'005;
 
 int32_t main() {
     // Naive
+    // check out again
     ifstream cin("finalBoss.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);

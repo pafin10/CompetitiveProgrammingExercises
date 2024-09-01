@@ -75,6 +75,5 @@ int32_t main() {
         cout<<sz(currPos)<<endl; 
         for (auto& k : currPos) cout<<k<<" ";
         cout<<endl; 
-
     }
 }
