@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <cstring>
+#include <string>
 #include <algorithm>
 #include <cmath>
 #include <map>
@@ -29,18 +29,36 @@ using namespace std;
 #define all(x) x.begin(), x.end()
 #define sz(x) (int)x.size()
 #define vout(v) it(i,0,sz(v)) cout<<v[i]<<" "
-//#define int long long
+#define int long long
 const int MAX_N = 100'005;
 const int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("3.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        vi a(n);
+
+        int sm = 0; 
+        for (auto& i : a) {
+            cin>>i; 
+            sm += i; 
+        }
+        if (n == 1 || n == 2) {
+            cout<<-1<<endl; 
+        }
+        else {
+            sort(a.begin(), a.end());
+            int mid = a[n/2];
+            int a = mid * n * 2 + 1;
+            int x = a - sm; 
+            if (x > 0) cout<<x<<endl; 
+            else cout<<0<<endl; 
+        }
     }
 }

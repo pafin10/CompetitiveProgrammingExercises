@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <cstring>
+#include <string>
 #include <algorithm>
 #include <cmath>
 #include <map>
@@ -32,15 +32,27 @@ using namespace std;
 //#define int long long
 const int MAX_N = 100'005;
 const int INF = 1E9;
-
+const string alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
 
-    while(t--) {
-        
+    string s; cin>>s; 
+    int ans = 0, i = 0; 
+    vi pos; 
+
+    while (i < 26) {
+        for (int j = 0; j < 26; j++) {
+            if (alph[i] == s[j]) {
+                pos.pb(j);
+                i++;
+                break; 
+            }   
+        }
     }
+    for (int i = 1; i < 26; i++) ans += abs(pos[i] - pos[i-1]);
+    cout<<ans<<endl; 
+
 }

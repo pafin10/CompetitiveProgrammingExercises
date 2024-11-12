@@ -1,0 +1,10 @@
+3
+4 3
+aabc
+aab
+8 8
+accepted
+accapted
+6 10
+abcdef
+abjjjcdefj

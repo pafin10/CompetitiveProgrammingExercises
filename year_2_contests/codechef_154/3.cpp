@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <cstring>
+#include <string>
 #include <algorithm>
 #include <cmath>
 #include <map>
@@ -35,7 +35,7 @@ const int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    ifstream cin("3.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 

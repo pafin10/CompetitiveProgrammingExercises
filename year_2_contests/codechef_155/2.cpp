@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <cstring>
+#include <string>
 #include <algorithm>
 #include <cmath>
 #include <map>
@@ -35,12 +35,26 @@ const int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n, m; cin>>n>>m; 
+        vector<vi> mat(n, vi(m, 2));
+
+        for (int i = 0, j = 0; i < n; i++, j++) {
+            if (j == m) j = 0;
+            mat[i][j] = 3;
+        }
+        for (int i = 0, j = 0; j < m; i++, j++) {
+            if (i == n) i = 0;
+            mat[i][j] = 3;
+        }
+        for (auto& row : mat) {
+            for (auto& i : row) cout<<i<<" ";
+            cout<<endl; 
+        }
     }
 }

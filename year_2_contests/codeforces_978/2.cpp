@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <cstring>
+#include <string>
 #include <algorithm>
 #include <cmath>
 #include <map>
@@ -35,12 +35,26 @@ const int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
-    while(t--) {
+    while (t--) {
+        int n, x;
+        cin >> n >> x; // Number of models and maximum cars per customer
+
+        vector<int> a(n); // Cars of each model
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+        }
         
-    }
+        int total_customers = 0;
+        // Iterate over each model and calculate required customers
+        for (int i = 0; i < n; i++) {
+            total_customers += (a[i] + x - 1) / x; // This is ceil(a[i] / x)
+        }
+        
+        cout << total_customers << "\n"; // Output result for this test case
+        }
 }

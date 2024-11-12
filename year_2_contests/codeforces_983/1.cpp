@@ -35,12 +35,24 @@ const int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        int mini = 0, maxi = 0;
+        int ones = 0, zeros = 0; 
+
+        for (int i = 0; i < 2 * n; i++) {
+            int j; cin>>j;
+            if (j == 1) ones++;
+            else zeros++;
+        }
+        mini = (ones % 2 == 0 && zeros % 2 == 0) ? 0 : 1;
+        maxi = min(ones, zeros);
+
+        cout<<mini<<" "<<maxi<<endl; 
     }
 }
