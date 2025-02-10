@@ -14,24 +14,21 @@
 #include <unordered_map>
 #include <cassert>
 #include <array>
+#include <deque>
+#include <functional>
 
 
 using namespace std;
 #define NDEBUG
-#define ll long long
 #define endl "\n"
-#define pb push_back
 #define ff first
 #define ss second
 #define vi vector<int>
-#define vll vector<ll>
 #define pii pair<int, int>
-#define all(x) x.begin(), x.end()
 #define sz(x) (int)x.size()
-#define vout(v) it(i,0,sz(v)) cout<<v[i]<<" "
 //#define int long long
-const int MAX_N = 100'005;
-const int INF = 1E9;
+constexpr int MAX_N = 100'005;
+constexpr int INF = 1E9;  
 
 
 int32_t main() {

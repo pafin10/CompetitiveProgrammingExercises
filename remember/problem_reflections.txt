@@ -1,0 +1,71 @@
+Halloween Array (codechef 164)
+
+For this problem https://www.codechef.com/problems/SPC2025Q5 I failed because 
+I avoided double for loops purely based on the input size. 
+This makes sense when the worst case really amounts to going through both loops 
+(O(n^2))completely but in this specific case, the extra check for duplicates 
+combined with some considerations about how fast the product grows (at least n! 
+if all numbers must be different and there are n of them) made it so that the 
+worst case was actually much better as r is guaranteed to be 10^9 at most. 
+
+So the main thing to take away is that when it seems like the most naive solution 
+is too slow and I can't think of a better one, I should just try the naive one first
+and really mentally probe the worst case scenario to see if it is actually that bad.
+*/
+
+Black cells (practice, greedy)
+
+Although I realised n was small, the practice of double for loops just seems
+to be very remote in my idea space. Deques are actually very useful especially 
+for problems with small n and when i need to modify a sequence in different places
+repreatedly. When I repeatedly want to insert and erase, it is smart to think
+about where to best initialise it to avoid unnecessary complexity. 
+
+If something doesnt work for a while always pause and rethink from the start if there
+is a simpler way to do it. 
+
+*/
+
+shohag loves xor (practice, math)
+Basically, the key obervation I did not get to is that if y >= 2x, then x xor y
+cant be a divisor of y. This is because the highest bit of x xor y is the same as
+that of x, see below.
+
+THOUGHT: Here 𝑥>0
+and 𝑦>0. So 𝑥⊕𝑦 is neither equal to 𝑥 nor 𝑦. So 𝑥⊕𝑦 is a divisor of 𝑥 or 𝑦 and 𝑥⊕𝑦<𝑥 or 𝑥⊕𝑦<𝑦.
+
+OBSERVATION: Any divisor 𝑑
+of 𝑝 such that 𝑑<𝑝 we know that 𝑑≤⌊𝑝2⌋.
+
+Also, the highest bits of 𝑑
+and 𝑝 are different when 𝑑≤⌊𝑝2⌋.
+
+THOUGHT: Wait but 𝑥⊕𝑦
+has the same highest bit as 𝑦 if 𝑦≥2⋅𝑥.
+
+CONCLUSION: So if 𝑦≥2⋅𝑥, then 𝑥⊕𝑦 can not be a divisor of 𝑦.
+THOUGHT: But can it be a divisor of 𝑥?
+
+OBSERVATION: If 𝑦≥2⋅𝑥
+, then 𝑥⊕𝑦>𝑥 because the highest bit in 𝑥⊕𝑦 is greater than that in 𝑥. So 𝑥⊕𝑦 can not be a divisor of 𝑥
+CONCLUSION: If 𝑦≥2⋅𝑥 , then 𝑥⊕𝑦 can not be a divisor of 𝑥 or 𝑦
+
+So no solution in this case.
+
+THOUGHT: Now we need to consider the case when 𝑦<2⋅𝑥
+. But 𝑥 is small in this problem, making it feasible to iterate over all possible values of 𝑦
+
+
+ACTION: Iterate over all possible values of 𝑦<2⋅𝑥
+and check if 𝑥⊕𝑦 is a divisor of either 𝑥 or 𝑦
+anjisBinaryTree (practice, trees, dfs)
+
+"If the current node has no children, it's already a leaf, so no operations are needed."
+
+"If it has a left child, find out the minimum operations needed to reach a leaf through the 
+left subtree. Add 1 if I need to change this node's label to 'L'."
+
+"If it has a right child, do the same for the right subtree, adding 1 if needed to change the 
+label to 'R'."
+
+"Return the smaller result of the two paths."

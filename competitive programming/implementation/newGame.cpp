@@ -32,7 +32,7 @@ using namespace std;
 const int MAX_N = 100'005;
 
 int32_t main() {
-    ifstream cin("newGame.txt");
+    // ifstream cin("newGame.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
@@ -41,34 +41,21 @@ int32_t main() {
         int n, k; cin>>n>>k; 
         vi a(n);
 
-        for (auto& i : a) cin>>i; 
+        for (auto& i : a) {
+            cin>>i; 
+        }
         sort(a.begin(), a.end());
+        
+        int ans = 0;
+        int j = 0; 
 
-        vi curr; 
-        int diffCnt = 1, ans = 0;
-        int start = 0; 
-        curr.pb(a[0]);
-
-        for (int i = 1; i < n; i++) {
-
-            if (a[i] - a[i-1] == 1) {
-                diffCnt++;
-                if (diffCnt > k) {
-                    i = start;
-                    diffCnt = 1; 
-                    ans = max(ans, (int) curr.size());
-                    curr.clear();
-                }
-                else start = i; 
+        for (int i = 0; i < n; i++) {
+            j = max(i, j);
+            while (j + 1 < n && a[j + 1] - a[j] <= 1 && a[j + 1] - a[i] < k) {
+                j++;
             }
-
-            else if (a[i] - a[i - 1] > 1) {
-                start = i; 
-                ans = max(ans, (int) curr.size());
-                curr.clear();
-                diffCnt = 1;
-            }
-            curr.pb(a[i]);
+            ans = max(ans, j - i + 1);
+            
         }
 
         cout<<ans<<endl; 
