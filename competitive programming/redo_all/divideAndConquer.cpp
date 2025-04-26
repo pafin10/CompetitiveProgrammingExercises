@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,30 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("divideAndConquer.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        vector<int> a(n);
+
+        for (auto& i: a) cin>>i;
+        int sum = accumulate(a.begin(), a.end(), 0);
+
+        int ans = INT32_MAX;
+        if (sum % 2) {
+            for (int i = 0; i < n; i++) {
+                int rest = a[i] % 2, cnt = 0;
+                while (a[i] % 2 == rest) {
+                    a[i] /= 2;
+                    cnt++;
+                }
+                ans = min(ans, cnt);
+            }
+        }
+        else ans = 0;
+        cout<<ans<<endl; 
     }
 }

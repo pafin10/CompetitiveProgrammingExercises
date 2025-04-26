@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,14 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("soldierAndBananas.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    
+    int k, n, w; 
+    cin>>k>>n>>w; 
 
-    while(t--) {
-        
-    }
+    int pay = 0; 
+    for (int i = 1; i <= w; i++) pay += i * k;
+    cout<<(((n - pay) < 0) ? abs(n - pay) : 0 )<<endl; 
 }

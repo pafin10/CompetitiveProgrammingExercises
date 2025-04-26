@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,20 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
-
-    while(t--) {
-        
+    
+    map<int, int> m; 
+    for (int i = 0; i < 7; i++) {
+        int j; cin>>j; 
+        m[j]++;
     }
+    bool two = false, three = false;
+    for (auto p: m) {
+        if (!three && p.second >= 3) three = true; 
+        else if (!two && p.second >= 2) two = true; 
+    }
+    if (two && three) cout<<"Yes"<<endl; 
+    else cout<<"No"<<endl; 
 }

@@ -33,12 +33,18 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
-
-    while(t--) {
-        
+    
+    int n; cin>>n; 
+    bool login = false, isPrivate = false; 
+    int ans = 0;
+    for (int i = 0; i < n; i++) {
+        string s; cin>>s; 
+        if (s == "login") login = true; 
+        if (s == "logout") login = false; 
+        if (s == "private" && !login) ans++;
     }
+    cout<<ans<<endl; 
 }

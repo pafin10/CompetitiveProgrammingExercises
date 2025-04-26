@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,34 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("xorPalindromes.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        string s; cin>>s;
+
+        string fi = s.substr(0, n / 2);
+        string se = s.substr((n + 1) / 2, n /2);
+        reverse(se.begin(), se.end());
+
+        int mismatches = 0, matches = 0; 
+        for (int i = 0; i < n/2; i++) (fi[i] == se[i]) ? matches++ : mismatches++;
+
+        vector<int> ans(n + 1);
+        int mid = 0;
+        if (n % 2) mid = 1;
+
+        for (int i = 0; i <= mid; i++) {
+            for (int j = 0; j <= matches; j++) {
+                ans[i + mismatches + 2 * j] = 1;
+            }
+        }
+       
+        for (auto& el: ans) cout<<el;
+        cout<<endl; 
+
     }
 }

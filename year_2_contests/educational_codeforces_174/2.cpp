@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -31,14 +30,21 @@ using namespace std;
 constexpr int MAX_N = 100'005;
 constexpr int INF = 1E9;  
 
+static bool isNeighbour(pair<int, int> a, pair<int, int> b) {
+    int row = a.first, col = a.second;
+    if (row == b.first && (col == b.second - 1 || col == b.second + 1)) return true;
+    if (col == b.second && (row == b.first - 1 || row == b.first + 1)) return true;
+    return false;
+}
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
+        int n, m; cin>>n>>m; 
         
     }
 }

@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,14 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("dominoPiling.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    
+    int n,m; cin>>n>>m; 
+    int area = n * m; 
+    int ans = (area / 2);
 
-    while(t--) {
-        
-    }
+    cout<<ans<<endl; 
+    
 }

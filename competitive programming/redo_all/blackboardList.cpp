@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,18 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("blackboardList.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        vector<int> a(n);
+
+        for (auto& i: a) cin>>i;
+        sort(a.begin(), a.end());
+        if (a[0] < 0) cout<<a[0]<<endl; 
+        else cout<<a[n - 1]<<endl; 
     }
 }

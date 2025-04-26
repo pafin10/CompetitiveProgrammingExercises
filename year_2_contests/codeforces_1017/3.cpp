@@ -33,12 +33,31 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("3.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        vector<int> p(2 * n + 1, -1), used(2 * n + 1, false);
+
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                int k; cin>>k; 
+                p[i + j] = k;
+                used[k] = true;
+            }
+        }
+
+        for (int i = 1; i <= 2 * n; i++) {
+            if (!used[i]) {
+                p[1] = i;
+                break; 
+            }
+        }
+        for (int i = 1; i <= 2 * n; i++) cout<<p[i]<<" ";
+        cout<<endl; 
     }
 }

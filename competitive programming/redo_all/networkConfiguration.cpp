@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,15 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("networkConfiguration.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    
+    int n, k; cin>>n>>k; 
+    vector<int> a(n);
 
-    while(t--) {
-        
-    }
+    for (auto& i: a) cin>>i; 
+    sort(a.rbegin(), a.rend());
+    cout<<a[k - 1]<<endl; 
+
 }

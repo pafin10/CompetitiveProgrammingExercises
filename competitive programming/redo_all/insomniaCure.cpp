@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,18 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("insomniaCure.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    int k, l, m, n, d; 
+    cin>>k>>l>>m>>n>>d; 
 
-    while(t--) {
-        
+    int ans = 0;
+    for (int i = 1; i <= d; i++) {
+        if (i % k == 0) ans++;
+        else if (i % l == 0) ans++;
+        else if (i % m == 0) ans++;
+        else if (i % n == 0) ans++;
     }
+    cout<<ans<<endl; 
 }

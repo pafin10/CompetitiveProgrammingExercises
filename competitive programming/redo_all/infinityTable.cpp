@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,30 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("infinityTable.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int k; cin>>k; 
+        int fs = sqrt(double(k));
+        if (fs * fs == k) {
+            if (k == 1) cout<<fs<<" "<<fs<<endl;
+            else cout<<fs<<" "<<1<<endl; 
+            continue;
+        }
+
+        pair<int, int> ans = {1, fs + 1};
+        int cnt = fs * fs + 1;
+
+        while (cnt != k) {
+            if (cnt < fs * fs + 1 + fs) 
+                ans.first++;
+            else 
+                ans.second--;
+            cnt++;
+        }
+        cout<<ans.first<<" "<<ans.second<<endl; 
     }
 }

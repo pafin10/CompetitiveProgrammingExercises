@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,20 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("buttons.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
+        int a, b, c; 
+        cin>>a>>b>>c;
         
+        int total = a + b + c;
+        a += c;
+        b += c;
+        if (a > b) cout<<"First"<<endl; 
+        else if (a == b) cout<< ((total % 2) ? "First" : "Second")<<endl;
+        else cout<<"Second"<<endl; 
     }
 }

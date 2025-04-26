@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,15 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("ultraFastMathematician.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
-
-    while(t--) {
-        
+    
+    string a, b; cin>>a>>b;
+    string ans = "";
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] ^ b[i]) ans += string() + '1';
+        else ans += string () + '0';
     }
+    cout<<ans<<endl; 
 }

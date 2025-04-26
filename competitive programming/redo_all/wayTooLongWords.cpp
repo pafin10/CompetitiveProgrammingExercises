@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,18 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("wayTooLongWords.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
 
-    while(t--) {
-        
+    int n; cin>>n; 
+    for (int i = 0; i < n; i++) {
+        string s; cin>>s;
+        if (s.size() <= 10) {
+            cout<<s<<endl; 
+            continue;
+        }
+        string ans = string() + s[0] + string() + to_string(s.size() - 2) + string() + s[s.size() - 1];
+        cout<<ans<<endl; 
     }
 }

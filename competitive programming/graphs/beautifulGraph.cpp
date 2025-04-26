@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -36,9 +35,6 @@ int32_t main() {
     ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
-
-    while(t--) {
-        
-    }
+    
+    // TODO: Implement! Check topic stream
 }

@@ -33,12 +33,24 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
 
+    int t; cin>>t; 
+    stack<int> st; 
+    for (int i = 1; i <= 100; i++) st.push(0);
+    
     while(t--) {
-        
+        int c; cin>>c;
+        if (c == 1) {
+            int j; cin>>j;
+            st.push(j);
+        }
+        else {
+            int out = st.top();
+            st.pop();
+            cout<<out<<endl; 
+        }
     }
 }

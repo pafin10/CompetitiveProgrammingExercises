@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,19 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("beautifulMatrix.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
 
-    while(t--) {
-        
+    int a,b; 
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= 5; j++) {
+            int k; cin>>k; 
+            if (k) {
+                a = i; 
+                b = j;
+            }
+        }
     }
+    cout<<abs(a - 3) + abs(b - 3)<<endl; 
 }

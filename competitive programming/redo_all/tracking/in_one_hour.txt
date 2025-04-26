@@ -1,0 +1,14 @@
+Session 1: 7 exercises done
+Last: Soldiers and Bananas
+Session 2: 6
+Last: Infinity Table
+Session 3: 3
+Last: Mathematical Circus
+Session 4: 4
+Next: Number of Apartments
+Session 5: 2
+Last: Xor palindromes
+Session 6: 3
+Last: Blackboard List
+Session 7: 4
+Next: xSum

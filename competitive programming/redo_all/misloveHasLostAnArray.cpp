@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,30 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("misloveHasLostAnArray.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
-
-    while(t--) {
-        
+    
+    int n, l, r; cin>>n>>l>>r; 
+    map<int, int> mini, maxi;
+    mini[1] = n - (l - 1);
+    maxi[(1 << (r - 1))] = n - (r - 1);
+    int cnt = 2;
+  
+    for (int i = 0; i < n - mini[1]; i++) {
+        mini[cnt] = 1;
+        cnt *= 2;
     }
+    cnt = 1;
+    for (int i = 0; i < n - maxi[(1 << (r - 1))]; i++) {
+        maxi[cnt] = 1;
+        cnt *= 2;
+    }
+    int ans_mini = 0, ans_maxi = 0;
+    for (auto el: mini) ans_mini += el.first * el.second;
+    for (auto el: maxi) ans_maxi += el.first * el.second;
+
+    cout<<ans_mini<<" "<<ans_maxi<<endl; 
 }
+        
+    

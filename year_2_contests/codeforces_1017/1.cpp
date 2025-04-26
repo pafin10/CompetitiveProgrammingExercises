@@ -33,12 +33,15 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        string a, b, c; cin>>a>>b>>c; 
+        string ans = "";
+        ans += a[0]; ans += b[0]; ans += c[0];
+        cout<<ans<<endl; 
     }
 }

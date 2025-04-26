@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,27 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("numberOfApartments.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        array<int, 3> ans;
+        bool fd = false; 
+        for (int i = 0; i <= n / 3; i++) {
+            for (int j = 0; j <= n / 5; j++) {
+                for (int k = 0; k <= n / 7; k++) {
+                    if (3 * i + 5 * j + 7 * k == n) {
+                        ans = {i, j, k};
+                        fd = true; 
+                        break; 
+                    }
+                }
+            }
+        }
+        if (fd) cout<<ans.at(0)<<" "<<ans.at(1)<<" "<<ans.at(2)<<endl; 
+        else cout<<-1<<endl; 
     }
 }

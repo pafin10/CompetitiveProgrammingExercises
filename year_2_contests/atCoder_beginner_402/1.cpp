@@ -33,12 +33,15 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    
+    string s; cin>>s; 
+    int n = s.size();
 
-    while(t--) {
-        
-    }
+    string ans = "";
+    for (int i = 0; i < n; i++) if (isupper(s[i])) ans += s[i];
+
+    cout<<ans<<endl; 
 }

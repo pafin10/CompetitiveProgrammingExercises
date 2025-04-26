@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,24 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("displayTheNumber.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        string ans = ""; 
+        if (n & 1) {
+            ans += '7';
+            n -= 3;
+        }
+        else {
+            ans += '1';
+            n -= 2;
+        }
+        ans += string(n / 2, '1');
+        cout<<ans<<endl; 
+
     }
 }

@@ -33,12 +33,21 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("2.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
+        int n; cin>>n; 
+        int mini = 200, maxi = 0; 
+        for (int i = 0; i < n; i++) {
+            int j; cin>>j; 
+            mini = min(mini, j);
+            maxi = max(maxi, j);
+        }
         
+        if (maxi == mini) cout<<0<<endl; 
+        else cout<<maxi - mini - 1<<endl; 
     }
 }

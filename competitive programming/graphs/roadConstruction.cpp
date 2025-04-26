@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,29 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("roadConstruction.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t; cin>>t; 
+    
+    int n, m; cin>>n>>m; 
+    vector<bool> center(n, true);
 
-    while(t--) {
-        
+    for (int i = 0; i < m; i++) {
+        int u, v; cin>>u>>v; 
+        u--; v--; 
+        center[u] = center[v] = false; 
     }
+
+    int c = 0; 
+    for (int i = 0; i < n; i++) {
+        if (center[i]) {
+            cout<<n - 1<<endl; 
+            for (int j = 0; j < n; j++) {
+                if (j == i) continue;
+                cout<<(i + 1)<<" "<<(j + 1)<<endl;
+            }
+            break; 
+        }
+    }
+
 }

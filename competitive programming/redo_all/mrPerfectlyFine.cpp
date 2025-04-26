@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,23 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("mrPerfectlyFine.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int n; cin>>n; 
+        int a = 10 * MAX_N ,b = 10 * MAX_N ,c = 10 * MAX_N; 
+
+        for (int i = 0; i < n; i++) {
+            int mi; cin>>mi;
+            string books; cin>>books;
+            if (books == "10") a = min(mi, a);
+            else if (books == "01") b = min(mi, b);
+            else if (books == "11") c = min(mi, c);
+        }
+        if ((a < 10 * MAX_N && b < 10 * MAX_N) || c < 10 * MAX_N) cout<<min(a + b, c)<<endl; 
+        else cout<<-1<<endl;
     }
 }

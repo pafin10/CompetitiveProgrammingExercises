@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,18 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("1.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
-        
+        int x, y, k; cin>>x>>y>>k; 
+        int ans = -1;
+
+        if ((abs(x - y) % 2) == (k % 2)) {
+            ans = abs(abs(x - y) - k) / 2;
+        }
+        cout<<ans<<endl; 
     }
 }

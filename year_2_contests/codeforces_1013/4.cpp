@@ -16,7 +16,6 @@
 #include <array>
 #include <deque>
 #include <functional>
-#include <stack>
 
 
 using namespace std;
@@ -33,12 +32,26 @@ constexpr int INF = 1E9;
 
 
 int32_t main() {
-    ifstream cin("1.txt");
+    // ifstream cin("4.txt");
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t; cin>>t; 
 
     while(t--) {
+        int n, m, k; cin>>n>>m>>k; 
+
+        int max_benches = k / n;
+        if (k % n) max_benches++;
         
+        int free = m - max_benches, ans, blocks;
+
+        if (m >= 2 * max_benches) ans = 1;
+        else {
+            blocks = min(m, free + 1);
+            ans = max_benches / blocks + ((max_benches % blocks) ? 1 : 0);
+        }
+        cout<<ans<<endl; 
+
+
     }
 }
